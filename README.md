@@ -3,6 +3,8 @@
 # dfilegen
 Generate .desktop file easily
 
+![dfilegen_screenshot](/assets/dfilegen_screenshot.png)
+
 Why?
 -
 While I was trying Manjaro Gnome on my laptop I found difficult organize all the apps not available in the store (so AppImage and executable in general). I had problems with AppImage Launcher and I decided to not activate AUR due to security concerns.
