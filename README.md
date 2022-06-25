@@ -1,3 +1,5 @@
+![dfilegen_logo](/assets/icons/icon.png)
+
 # dfilegen
 Generate .desktop file easily
 
