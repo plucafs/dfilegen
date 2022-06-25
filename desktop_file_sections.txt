@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Name of Application
+Exec=/path/to/executable
+Icon=/path/to/icon
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+
+
