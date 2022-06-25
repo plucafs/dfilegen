@@ -10,8 +10,21 @@ There weren't other solutions available than doing the program I needed, by myse
 
 How it works?
 -
-Fill all the spaces with the information needed and click on the button. On Windows you can select where the file will be saved, in Linux is saved in the same directory in which you're running this program. 
-Then, copy the file and paste it in home/.local/share/applications (only for the current user). It'll appear in the app menu.
+Fill all the spaces with the information needed and click on the button. It'll be saved in the same directory in which you're running the program. 
+Then, copy the file and paste it in home/.local/share/applications 
+It'll be availabe only for the current user and will appear in the app menu.
+
+Tips and tricks
+- In the "Icon" space you can write only the name of the program if an icon with the same name exists in the icon folder of your system in Computer/usr/share/icons
+
+What is broken?
+-
+The select directory prompt doesn't work. It's always saved in the directory th program is in.
+
+What's to do?
+-
+- Save in a custom directory (ideally with home/.local/share/applications as the default)
+- Feel free to propose something!
 
 Credits
 -
