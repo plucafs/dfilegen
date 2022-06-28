@@ -25,7 +25,7 @@ What is broken?
 -
 The select directory prompt doesn't work. It's always saved in the directory the program is in.
 
-What's to do?
+What's next?
 -
 - Save in a custom directory (ideally with home/.local/share/applications as the default)
 - Feel free to propose something!
