@@ -30,108 +30,167 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 198.0
-margin_top = 25.0
-margin_right = 551.0
-margin_bottom = 475.0
+margin_left = 175.0
+margin_top = 37.0
+margin_right = 575.0
+margin_bottom = 463.0
 alignment = 1
 
 [node name="FileSaved" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 353.0
+margin_right = 400.0
 margin_bottom = 24.0
 custom_colors/font_color = Color( 0.25098, 1, 0.313726, 1 )
 align = 1
 
 [node name="Icon" type="TextureRect" parent="CenterContainer/VBoxContainer"]
 margin_top = 28.0
-margin_right = 353.0
+margin_right = 400.0
 margin_bottom = 124.0
 texture = ExtResource( 4 )
 stretch_mode = 6
 
 [node name="DesktopVariables" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 128.0
-margin_right = 353.0
-margin_bottom = 416.0
+margin_right = 400.0
+margin_bottom = 392.0
 
 [node name="AppName" type="Label" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_right = 353.0
+margin_right = 400.0
 margin_bottom = 24.0
 text = "App name"
-align = 1
 valign = 1
 
 [node name="AppNameLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/DesktopVariables"]
 margin_top = 28.0
-margin_right = 353.0
-margin_bottom = 62.0
+margin_right = 400.0
+margin_bottom = 52.0
 align = 1
 placeholder_text = "dfilegen"
 placeholder_alpha = 0.2
 
 [node name="AppPath" type="Label" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 66.0
-margin_right = 353.0
-margin_bottom = 90.0
+margin_top = 56.0
+margin_right = 400.0
+margin_bottom = 80.0
 text = "Path to execute"
-align = 1
 valign = 1
 
-[node name="AppPathLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 94.0
-margin_right = 353.0
-margin_bottom = 128.0
+[node name="AppPathContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/DesktopVariables"]
+margin_top = 84.0
+margin_right = 400.0
+margin_bottom = 114.0
+custom_constants/separation = 25
+
+[node name="AppPathLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/DesktopVariables/AppPathContainer"]
+margin_right = 340.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
 align = 1
 placeholder_text = "/home/user/Software/dfilegen.x86_64"
 placeholder_alpha = 0.2
 
+[node name="AppPathButton" type="Button" parent="CenterContainer/VBoxContainer/DesktopVariables/AppPathContainer"]
+margin_left = 365.0
+margin_right = 400.0
+margin_bottom = 30.0
+text = "Path"
+
 [node name="AppIco" type="Label" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 132.0
-margin_right = 353.0
-margin_bottom = 156.0
+margin_top = 118.0
+margin_right = 400.0
+margin_bottom = 142.0
 text = "Icon path"
-align = 1
 valign = 1
 
-[node name="AppIcoLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 160.0
-margin_right = 353.0
-margin_bottom = 194.0
+[node name="AppIcoContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/DesktopVariables"]
+margin_top = 146.0
+margin_right = 400.0
+margin_bottom = 176.0
+custom_constants/separation = 25
+
+[node name="AppIcoLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/DesktopVariables/AppIcoContainer"]
+margin_right = 340.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
 align = 1
 placeholder_text = "/home/user/Immagini/ICO/dfilegen.ico"
 placeholder_alpha = 0.2
 
+[node name="AppIcoButton" type="Button" parent="CenterContainer/VBoxContainer/DesktopVariables/AppIcoContainer"]
+margin_left = 365.0
+margin_right = 400.0
+margin_bottom = 30.0
+text = "Path"
+
 [node name="AppType" type="Label" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 198.0
-margin_right = 353.0
-margin_bottom = 222.0
+margin_top = 180.0
+margin_right = 400.0
+margin_bottom = 204.0
 text = "App type"
-align = 1
 valign = 1
 
 [node name="AppTypeLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 226.0
-margin_right = 353.0
-margin_bottom = 260.0
+margin_top = 208.0
+margin_right = 400.0
+margin_bottom = 232.0
 align = 1
 placeholder_text = "Application"
 placeholder_alpha = 0.2
 
 [node name="Fill" type="Label" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 264.0
-margin_right = 353.0
-margin_bottom = 288.0
+margin_top = 236.0
+margin_right = 400.0
+margin_bottom = 260.0
 text = "Fill all the spaces and..."
 align = 1
 
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/DesktopVariables"]
+margin_top = 264.0
+margin_right = 400.0
+margin_bottom = 264.0
+
 [node name="GenDeskFileButton" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 420.0
-margin_right = 353.0
-margin_bottom = 450.0
-text = "...click here to save the file in the current folder"
+margin_top = 396.0
+margin_right = 400.0
+margin_bottom = 426.0
+rect_min_size = Vector2( 400, 0 )
+text = "Generate the file!"
 
 [node name="TimerFileSave" type="Timer" parent="."]
 wait_time = 4.0
 
+[node name="AppPathFileDialog" type="FileDialog" parent="."]
+margin_right = 293.0
+margin_bottom = 170.0
+window_title = "Open a File"
+resizable = true
+mode = 0
+access = 2
+current_dir = "/Progetti/GitHub/dfilegen"
+current_path = "/Progetti/GitHub/dfilegen/"
+
+[node name="AppIcoFileDialog" type="FileDialog" parent="."]
+margin_right = 293.0
+margin_bottom = 170.0
+window_title = "Open a File"
+resizable = true
+mode = 0
+access = 2
+current_dir = "/Progetti/GitHub/dfilegen"
+current_path = "/Progetti/GitHub/dfilegen/"
+
+[node name="GenerateFileDialog" type="FileDialog" parent="."]
+margin_right = 283.0
+margin_bottom = 160.0
+resizable = true
+access = 2
+current_dir = "/Progetti/GitHub/dfilegen"
+current_path = "/Progetti/GitHub/dfilegen/"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/DesktopVariables/AppPathContainer/AppPathButton" to="." method="_on_AppPathButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/DesktopVariables/AppIcoContainer/AppIcoButton" to="." method="_on_AppIcoButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/GenDeskFileButton" to="." method="_on_GenDeskFileButton_pressed"]
 [connection signal="timeout" from="TimerFileSave" to="." method="_on_TimerFileSave_timeout"]
+[connection signal="file_selected" from="AppPathFileDialog" to="." method="_on_AppPathFileDialog_file_selected"]
+[connection signal="file_selected" from="AppIcoFileDialog" to="." method="_on_AppIcoFileDialog_file_selected"]
+[connection signal="confirmed" from="GenerateFileDialog" to="." method="_on_GenerateFileDialog_confirmed"]
