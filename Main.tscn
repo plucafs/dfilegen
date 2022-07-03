@@ -72,7 +72,7 @@ placeholder_alpha = 0.2
 margin_top = 56.0
 margin_right = 400.0
 margin_bottom = 80.0
-text = "Path to execute"
+text = "Path to executable"
 valign = 1
 
 [node name="AppPathContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/DesktopVariables"]
