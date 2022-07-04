@@ -10,14 +10,15 @@ onready var timer_file_save = $TimerFileSave
 
 func _ready():
 	file_save.hide()
+	AppTypeLineEdit.text = "Application"
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
 
-func save_file():
+func save_file(path):
 	var file = File.new()
-	file.open(AppNameLineEdit.text + ".desktop", File.WRITE)
+	file.open(path + "/" + AppNameLineEdit.text + ".desktop", File.WRITE)
 	file.store_string("[Desktop Entry]" + 
 	"\nName=" + AppNameLineEdit.text +
 	"\nExec=" + AppPathLineEdit.text +
@@ -35,25 +36,39 @@ func file_correctly_saved():
 	file_save.show()
 
 func _on_GenDeskFileButton_pressed():
-	$GenerateFileDialog.rect_position = OS.window_size / 2
-	$GenerateFileDialog.show()
+#	$GenerateFileDialog.rect_position = OS.window_size / 2
+#	$GenerateFileDialog.show()
+	$GenerateFileDialogSelectFolder.show()
 	
 func _on_TimerFileSave_timeout():
 	file_save.hide()
 
 func _on_AppPathButton_pressed():
-	$AppPathFileDialog.rect_position = OS.window_size / 2
-	$AppPathFileDialog.show()
+#	$AppPathFileDialog.rect_position = OS.window_size / 2
+#	$AppPathFileDialog.show()
+	$AppDialogOpenFile.show()
 
 func _on_AppPathFileDialog_file_selected(path):
 	AppPathLineEdit.text = path
 	
 func _on_AppIcoButton_pressed():
-	$AppPathFileDialog.rect_position = OS.window_size / 2
-	$AppPathFileDialog.show()
+#	$AppPathFileDialog.rect_position = OS.window_size / 2
+#	$AppPathFileDialog.show()
+	$IconDialogOpenFile.show()
 
 func _on_AppIcoFileDialog_file_selected(path):
 	AppIcoLineEdit.text = path 
 
-func _on_GenerateFileDialog_confirmed():
-	save_file()
+#func _on_GenerateFileDialog_confirmed():
+#	save_file()
+
+func _on_ExeDialogOpenFile_files_selected(files):
+	var file = files[0]
+	AppPathLineEdit.text = file
+	
+func _on_IconDialogOpenFile_files_selected(files):
+	var file = files[0]
+	AppIcoLineEdit.text = file
+
+func _on_GenerateFileDialogSelectFolder_folder_selected(folder):
+	save_file(folder)

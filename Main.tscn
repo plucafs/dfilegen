@@ -1,15 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://themes/main_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=2]
+[ext_resource path="res://addons/native_dialogs/bin/native_dialog_open_file.gdns" type="Script" id=3]
 [ext_resource path="res://assets/icons/icon.png" type="Texture" id=4]
 [ext_resource path="res://assets/light.png" type="Texture" id=5]
+[ext_resource path="res://addons/native_dialogs/bin/native_dialog_select_folder.gdns" type="Script" id=6]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
+
+[node name="AppDialogOpenFile" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="IconDialogOpenFile" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="GenerateFileDialogSelectFolder" type="Node" parent="."]
+script = ExtResource( 6 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 365, 0 )
@@ -30,29 +41,30 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 175.0
-margin_top = 37.0
-margin_right = 575.0
-margin_bottom = 463.0
+margin_left = 50.0
+margin_top = 55.0
+margin_right = 450.0
+margin_bottom = 445.0
+custom_constants/separation = 0
 alignment = 1
 
 [node name="FileSaved" type="Label" parent="CenterContainer/VBoxContainer"]
+visible = false
 margin_right = 400.0
 margin_bottom = 24.0
 custom_colors/font_color = Color( 0.25098, 1, 0.313726, 1 )
 align = 1
 
 [node name="Icon" type="TextureRect" parent="CenterContainer/VBoxContainer"]
-margin_top = 28.0
 margin_right = 400.0
-margin_bottom = 124.0
+margin_bottom = 96.0
 texture = ExtResource( 4 )
 stretch_mode = 6
 
 [node name="DesktopVariables" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 128.0
+margin_top = 96.0
 margin_right = 400.0
-margin_bottom = 392.0
+margin_bottom = 360.0
 
 [node name="AppName" type="Label" parent="CenterContainer/VBoxContainer/DesktopVariables"]
 margin_right = 400.0
@@ -150,9 +162,9 @@ margin_right = 400.0
 margin_bottom = 264.0
 
 [node name="GenDeskFileButton" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 396.0
+margin_top = 360.0
 margin_right = 400.0
-margin_bottom = 426.0
+margin_bottom = 390.0
 rect_min_size = Vector2( 400, 0 )
 text = "Generate the file!"
 
@@ -187,6 +199,9 @@ access = 2
 current_dir = "/Progetti/GitHub/dfilegen"
 current_path = "/Progetti/GitHub/dfilegen/"
 
+[connection signal="files_selected" from="AppDialogOpenFile" to="." method="_on_ExeDialogOpenFile_files_selected"]
+[connection signal="files_selected" from="IconDialogOpenFile" to="." method="_on_IconDialogOpenFile_files_selected"]
+[connection signal="folder_selected" from="GenerateFileDialogSelectFolder" to="." method="_on_GenerateFileDialogSelectFolder_folder_selected"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/DesktopVariables/AppPathContainer/AppPathButton" to="." method="_on_AppPathButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/DesktopVariables/AppIcoContainer/AppIcoButton" to="." method="_on_AppIcoButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/GenDeskFileButton" to="." method="_on_GenDeskFileButton_pressed"]
