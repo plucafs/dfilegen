@@ -30,6 +30,8 @@ Credits
 -
 Made with Godot Engine
 
+Plugin [NativeDialogs](https://github.com/98teg/NativeDialogs) to select file and folder using the system file selector, made by [98teg](https://github.com/98teg)
+
 Font: Open Sans
 Designed by Steve Matteson
 (https://fonts.google.com/specimen/Open+Sans)
