@@ -178,8 +178,6 @@ window_title = "Open a File"
 resizable = true
 mode = 0
 access = 2
-current_dir = "/Progetti/GitHub/dfilegen"
-current_path = "/Progetti/GitHub/dfilegen/"
 
 [node name="AppIcoFileDialog" type="FileDialog" parent="."]
 margin_right = 293.0
@@ -188,16 +186,12 @@ window_title = "Open a File"
 resizable = true
 mode = 0
 access = 2
-current_dir = "/Progetti/GitHub/dfilegen"
-current_path = "/Progetti/GitHub/dfilegen/"
 
 [node name="GenerateFileDialog" type="FileDialog" parent="."]
 margin_right = 283.0
 margin_bottom = 160.0
 resizable = true
 access = 2
-current_dir = "/Progetti/GitHub/dfilegen"
-current_path = "/Progetti/GitHub/dfilegen/"
 
 [connection signal="files_selected" from="AppDialogOpenFile" to="." method="_on_ExeDialogOpenFile_files_selected"]
 [connection signal="files_selected" from="IconDialogOpenFile" to="." method="_on_IconDialogOpenFile_files_selected"]
