@@ -1,205 +1,139 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://themes/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/SectionContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=2]
-[ext_resource path="res://addons/native_dialogs/bin/native_dialog_open_file.gdns" type="Script" id=3]
-[ext_resource path="res://assets/icons/icon.png" type="Texture" id=4]
-[ext_resource path="res://assets/light.png" type="Texture" id=5]
-[ext_resource path="res://addons/native_dialogs/bin/native_dialog_select_folder.gdns" type="Script" id=6]
+[ext_resource path="res://themes/new_theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/icons/icon-border.png" type="Texture" id=4]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
+theme = ExtResource( 3 )
 script = ExtResource( 2 )
-
-[node name="AppDialogOpenFile" type="Node" parent="."]
-script = ExtResource( 3 )
-
-[node name="IconDialogOpenFile" type="Node" parent="."]
-script = ExtResource( 3 )
-
-[node name="GenerateFileDialogSelectFolder" type="Node" parent="."]
-script = ExtResource( 6 )
-
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 365, 0 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 5 )
-texture_scale = 1.16
-energy = 0.3
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.137255, 0.137255, 0.137255, 1 )
+color = Color( 0.129412, 0.145098, 0.160784, 1 )
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_left = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 50.0
-margin_top = 55.0
-margin_right = 450.0
-margin_bottom = 445.0
+[node name="Container" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 20.0
+margin_right = 480.0
+margin_bottom = 600.0
 custom_constants/separation = 0
 alignment = 1
 
-[node name="FileSaved" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="FileSavedLabel" type="Label" parent="MarginContainer/Container"]
 visible = false
-margin_right = 400.0
-margin_bottom = 24.0
+margin_top = 17.0
+margin_right = 460.0
+margin_bottom = 31.0
 custom_colors/font_color = Color( 0.25098, 1, 0.313726, 1 )
 align = 1
 
-[node name="Icon" type="TextureRect" parent="CenterContainer/VBoxContainer"]
-margin_right = 400.0
-margin_bottom = 96.0
+[node name="Icon" type="TextureRect" parent="MarginContainer/Container"]
+margin_top = 59.0
+margin_right = 460.0
+margin_bottom = 116.0
 texture = ExtResource( 4 )
 stretch_mode = 6
 
-[node name="DesktopVariables" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 96.0
-margin_right = 400.0
-margin_bottom = 360.0
+[node name="DesktopVariables" type="VBoxContainer" parent="MarginContainer/Container"]
+margin_top = 116.0
+margin_right = 460.0
+margin_bottom = 541.0
+custom_constants/separation = 15
 
-[node name="AppName" type="Label" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_right = 400.0
-margin_bottom = 24.0
-text = "App name"
-valign = 1
+[node name="Name" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 460.0
+margin_bottom = 62.0
+text_label = "Name"
+placeholder_line_edit = "App name"
 
-[node name="AppNameLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 28.0
-margin_right = 400.0
-margin_bottom = 52.0
-align = 1
-placeholder_text = "dfilegen"
-placeholder_alpha = 0.2
+[node name="ExecutablePath" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 77.0
+margin_right = 460.0
+margin_bottom = 139.0
+text_label = "Executable path"
+placeholder_line_edit = "Path to executable"
+is_button_visible = true
 
-[node name="AppPath" type="Label" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 56.0
-margin_right = 400.0
-margin_bottom = 80.0
-text = "Path to executable"
-valign = 1
+[node name="IconPath" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 154.0
+margin_right = 460.0
+margin_bottom = 216.0
+text_label = "Icon path"
+placeholder_line_edit = "Path to icon"
+is_button_visible = true
 
-[node name="AppPathContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 84.0
-margin_right = 400.0
-margin_bottom = 114.0
-custom_constants/separation = 25
+[node name="Type" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 231.0
+margin_right = 460.0
+margin_bottom = 293.0
+text_label = "App type"
+placeholder_line_edit = "App type"
 
-[node name="AppPathLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/DesktopVariables/AppPathContainer"]
-margin_right = 340.0
-margin_bottom = 30.0
-size_flags_horizontal = 3
-align = 1
-placeholder_text = "/home/user/Software/dfilegen.x86_64"
-placeholder_alpha = 0.2
+[node name="SaveLocation" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 308.0
+margin_right = 460.0
+margin_bottom = 370.0
+text_label = "Save location path"
+is_button_visible = true
 
-[node name="AppPathButton" type="Button" parent="CenterContainer/VBoxContainer/DesktopVariables/AppPathContainer"]
-margin_left = 365.0
-margin_right = 400.0
-margin_bottom = 30.0
-text = "Path"
-
-[node name="AppIco" type="Label" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 118.0
-margin_right = 400.0
-margin_bottom = 142.0
-text = "Icon path"
-valign = 1
-
-[node name="AppIcoContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 146.0
-margin_right = 400.0
-margin_bottom = 176.0
-custom_constants/separation = 25
-
-[node name="AppIcoLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/DesktopVariables/AppIcoContainer"]
-margin_right = 340.0
-margin_bottom = 30.0
-size_flags_horizontal = 3
-align = 1
-placeholder_text = "/home/user/Immagini/ICO/dfilegen.ico"
-placeholder_alpha = 0.2
-
-[node name="AppIcoButton" type="Button" parent="CenterContainer/VBoxContainer/DesktopVariables/AppIcoContainer"]
-margin_left = 365.0
-margin_right = 400.0
-margin_bottom = 30.0
-text = "Path"
-
-[node name="AppType" type="Label" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 180.0
-margin_right = 400.0
-margin_bottom = 204.0
-text = "App type"
-valign = 1
-
-[node name="AppTypeLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 208.0
-margin_right = 400.0
-margin_bottom = 232.0
-align = 1
-placeholder_text = "Application"
-placeholder_alpha = 0.2
-
-[node name="Fill" type="Label" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 236.0
-margin_right = 400.0
-margin_bottom = 260.0
-text = "Fill all the spaces and..."
-align = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/DesktopVariables"]
-margin_top = 264.0
-margin_right = 400.0
-margin_bottom = 264.0
-
-[node name="GenDeskFileButton" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 360.0
-margin_right = 400.0
-margin_bottom = 390.0
-rect_min_size = Vector2( 400, 0 )
-text = "Generate the file!"
+[node name="GenerateFileButton" type="Button" parent="MarginContainer/Container/DesktopVariables"]
+margin_top = 385.0
+margin_right = 460.0
+margin_bottom = 425.0
+rect_min_size = Vector2( 0, 40 )
+text = "Generate .desktop file"
 
 [node name="TimerFileSave" type="Timer" parent="."]
 wait_time = 4.0
 
-[node name="AppPathFileDialog" type="FileDialog" parent="."]
-margin_right = 293.0
+[node name="FileDialog" type="Node" parent="."]
+
+[node name="AppPathFileDialog" type="FileDialog" parent="FileDialog"]
+margin_right = 324.0
 margin_bottom = 170.0
 window_title = "Open a File"
 resizable = true
 mode = 0
 access = 2
 
-[node name="AppIcoFileDialog" type="FileDialog" parent="."]
-margin_right = 293.0
+[node name="AppIcoFileDialog" type="FileDialog" parent="FileDialog"]
+margin_right = 324.0
 margin_bottom = 170.0
 window_title = "Open a File"
 resizable = true
 mode = 0
 access = 2
 
-[node name="GenerateFileDialog" type="FileDialog" parent="."]
-margin_right = 283.0
+[node name="GenerateFileDialog" type="FileDialog" parent="FileDialog"]
+margin_right = 425.0
 margin_bottom = 160.0
+window_title = "Open a Directory"
 resizable = true
+mode = 2
 access = 2
 
-[connection signal="files_selected" from="AppDialogOpenFile" to="." method="_on_ExeDialogOpenFile_files_selected"]
-[connection signal="files_selected" from="IconDialogOpenFile" to="." method="_on_IconDialogOpenFile_files_selected"]
-[connection signal="folder_selected" from="GenerateFileDialogSelectFolder" to="." method="_on_GenerateFileDialogSelectFolder_folder_selected"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/DesktopVariables/AppPathContainer/AppPathButton" to="." method="_on_AppPathButton_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/DesktopVariables/AppIcoContainer/AppIcoButton" to="." method="_on_AppIcoButton_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/GenDeskFileButton" to="." method="_on_GenDeskFileButton_pressed"]
+[connection signal="pressed" from="MarginContainer/Container/DesktopVariables/GenerateFileButton" to="." method="_on_GenerateFileButton_pressed"]
 [connection signal="timeout" from="TimerFileSave" to="." method="_on_TimerFileSave_timeout"]
-[connection signal="file_selected" from="AppPathFileDialog" to="." method="_on_AppPathFileDialog_file_selected"]
-[connection signal="file_selected" from="AppIcoFileDialog" to="." method="_on_AppIcoFileDialog_file_selected"]
-[connection signal="confirmed" from="GenerateFileDialog" to="." method="_on_GenerateFileDialog_confirmed"]
+[connection signal="file_selected" from="FileDialog/AppPathFileDialog" to="." method="_on_AppPathFileDialog_file_selected"]
+[connection signal="file_selected" from="FileDialog/AppIcoFileDialog" to="." method="_on_AppIcoFileDialog_file_selected"]
+[connection signal="dir_selected" from="FileDialog/GenerateFileDialog" to="." method="_on_GenerateFileDialog_dir_selected"]
