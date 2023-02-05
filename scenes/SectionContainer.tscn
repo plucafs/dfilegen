@@ -19,9 +19,10 @@ margin_top = 18.0
 margin_right = 500.0
 margin_bottom = 48.0
 rect_min_size = Vector2( 0, 30 )
+custom_constants/separation = 16
 
 [node name="LineEdit" type="LineEdit" parent="ButtonContainer"]
-margin_right = 436.0
+margin_right = 424.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 align = 1

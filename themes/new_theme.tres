@@ -1,21 +1,23 @@
-[gd_resource type="Theme" load_steps=8 format=2]
+[gd_resource type="Theme" load_steps=13 format=2]
 
 [ext_resource path="res://fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf" type="DynamicFontData" id=1]
 
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.52549, 0.556863, 0.588235, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0.6, 0.913725, 0.94902, 1 )
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.243, 0.2715, 0.3, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.243, 0.2715, 0.3, 1 )
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.52549, 0.556863, 0.588235, 1 )
+bg_color = Color( 0.203922, 0.227451, 0.25098, 1 )
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
@@ -32,6 +34,9 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxLine" id=13]
+color = Color( 0.6, 0.913725, 0.94902, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.203922, 0.227451, 0.25098, 1 )
@@ -52,14 +57,47 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.203922, 0.227451, 0.25098, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.6, 0.913725, 0.94902, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
 [sub_resource type="DynamicFont" id=5]
-size = 20
+size = 19
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.162, 0.181, 0.2, 1 )
+border_width_left = 2
+border_width_top = 26
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 26.0
+shadow_size = 32
 
 [resource]
 default_font = SubResource( 5 )
-Button/styles/hover = SubResource( 6 )
+Button/styles/disabled = SubResource( 12 )
+Button/styles/hover = SubResource( 11 )
 Button/styles/normal = SubResource( 3 )
 Button/styles/pressed = SubResource( 7 )
+HSeparator/styles/separator = SubResource( 13 )
 LineEdit/styles/focus = SubResource( 2 )
 LineEdit/styles/normal = SubResource( 1 )
+Tree/styles/bg = SubResource( 8 )
+Tree/styles/bg_focus = SubResource( 9 )
+WindowDialog/colors/title_color = Color( 0.203922, 0.227451, 0.25098, 1 )
+WindowDialog/constants/close_h_ofs = 21
+WindowDialog/constants/close_v_ofs = 21
+WindowDialog/constants/title_height = 31
+WindowDialog/fonts/title_font = SubResource( 5 )
+WindowDialog/styles/panel = SubResource( 10 )

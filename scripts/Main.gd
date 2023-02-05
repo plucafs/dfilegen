@@ -1,5 +1,7 @@
 extends Control
 
+# To do: create applications folder if it doesn't exist
+
 onready var executable_path_button = $MarginContainer/Container/DesktopVariables/ExecutablePath.get_node("ButtonContainer/Button").connect("_on_Button_pressed", self, "_on_AppPathButton_pressed")
 onready var icon_path_button = $MarginContainer/Container/DesktopVariables/IconPath.get_node("ButtonContainer/Button").connect("_on_Button_pressed", self, "_on_AppIcoButton_pressed")
 onready var save_location_button = $MarginContainer/Container/DesktopVariables/SaveLocation.get_node("ButtonContainer/Button").connect("_on_Button_pressed", self, "_on_SaveLocationButton_pressed")
@@ -52,8 +54,8 @@ func _on_TimerFileSave_timeout():
 
 ### Select and apply executable path
 func _on_AppPathButton_pressed():
-	app_path_file_dialog.rect_position = Vector2(0, OS.window_size.y/8)
-	app_path_file_dialog.rect_size = Vector2(400,400)
+#	app_path_file_dialog.rect_position = Vector2(0, OS.window_size.y/8)
+#	app_path_file_dialog.rect_size = Vector2(400,400)
 	app_path_file_dialog.show()
 
 func _on_AppPathFileDialog_file_selected(path):
@@ -62,8 +64,8 @@ func _on_AppPathFileDialog_file_selected(path):
 
 ### Select and apply icon path
 func _on_AppIcoButton_pressed():
-	app_ico_file_dialog.rect_position = Vector2(0, OS.window_size.y/8)
-	app_ico_file_dialog.rect_size = Vector2(400,400)
+#	app_ico_file_dialog.rect_position = Vector2(0, OS.window_size.y/8)
+#	app_ico_file_dialog.rect_size = Vector2(400,400)
 	app_ico_file_dialog.show()
 
 func _on_AppIcoFileDialog_file_selected(path):
@@ -72,8 +74,8 @@ func _on_AppIcoFileDialog_file_selected(path):
 
 ### Select and apply location path
 func _on_SaveLocationButton_pressed():
-	app_path_file_dialog.rect_position = Vector2(0, OS.window_size.y/8)
-	app_path_file_dialog.rect_size = Vector2(400,400)
+#	app_path_file_dialog.rect_position = Vector2(0, OS.window_size.y/8)
+#	app_path_file_dialog.rect_size = Vector2(400,400)
 	app_path_file_dialog.show()
 
 func _on_GenerateFileDialog_dir_selected(dir: String) -> void:
