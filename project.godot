@@ -20,6 +20,7 @@ config/windows_native_icon="res://assets/icons/icon.ico"
 [display]
 
 window/size/width=500
+window/size/height=500
 window/stretch/aspect="expand"
 
 [importer_defaults]
