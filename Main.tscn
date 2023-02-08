@@ -38,32 +38,38 @@ custom_colors/font_color = Color( 0.25098, 1, 0.313726, 1 )
 align = 1
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/Container"]
-margin_top = 52.0
+margin_top = 62.0
 margin_right = 468.0
-margin_bottom = 109.0
+margin_bottom = 119.0
 texture = ExtResource( 4 )
 stretch_mode = 6
 
-[node name="DesktopVariables" type="VBoxContainer" parent="MarginContainer/Container"]
-margin_top = 109.0
+[node name="Spacer" type="Control" parent="MarginContainer/Container"]
+margin_top = 119.0
 margin_right = 468.0
-margin_bottom = 548.0
-custom_constants/separation = 15
+margin_bottom = 151.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="DesktopVariables" type="VBoxContainer" parent="MarginContainer/Container"]
+margin_top = 151.0
+margin_right = 468.0
+margin_bottom = 537.0
+custom_constants/separation = 32
 
 [node name="Name" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 468.0
-margin_bottom = 61.0
+margin_bottom = 30.0
 text_label = "Name"
 placeholder_line_edit = "App name"
 
 [node name="ExecutablePath" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 76.0
+margin_top = 62.0
 margin_right = 468.0
-margin_bottom = 137.0
+margin_bottom = 92.0
 text_label = "Executable path"
 placeholder_line_edit = "Path to executable"
 is_button_visible = true
@@ -71,9 +77,9 @@ is_button_visible = true
 [node name="IconPath" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 152.0
+margin_top = 124.0
 margin_right = 468.0
-margin_bottom = 213.0
+margin_bottom = 154.0
 text_label = "Icon path"
 placeholder_line_edit = "Path to icon"
 is_button_visible = true
@@ -81,30 +87,30 @@ is_button_visible = true
 [node name="Type" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 228.0
+margin_top = 186.0
 margin_right = 468.0
-margin_bottom = 289.0
+margin_bottom = 216.0
 text_label = "App type"
 placeholder_line_edit = "App type"
 
 [node name="SaveLocation" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 304.0
+margin_top = 248.0
 margin_right = 468.0
-margin_bottom = 365.0
+margin_bottom = 278.0
 text_label = "Save location path (replace \"username\")"
 is_button_visible = true
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/Container/DesktopVariables"]
-margin_top = 380.0
+margin_top = 310.0
 margin_right = 468.0
-margin_bottom = 384.0
+margin_bottom = 314.0
 
 [node name="GenerateFileButton" type="Button" parent="MarginContainer/Container/DesktopVariables"]
-margin_top = 399.0
+margin_top = 346.0
 margin_right = 468.0
-margin_bottom = 439.0
+margin_bottom = 386.0
 rect_min_size = Vector2( 0, 40 )
 text = "Generate .desktop file"
 
