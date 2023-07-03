@@ -1,3 +1,6 @@
+.vscode/
+builds/
 .import
 export_presets.cfg
 export_presets.cfg
+*.import

@@ -34,6 +34,7 @@ margin_left = 440.0
 margin_right = 500.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 60, 0 )
+icon_align = 1
 script = ExtResource( 2 )
 
 [connection signal="pressed" from="ButtonContainer/Button" to="ButtonContainer/Button" method="_on_Button_pressed"]

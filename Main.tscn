@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/SectionContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=2]
-[ext_resource path="res://themes/new_theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/icons/folder.png" type="Texture" id=3]
 [ext_resource path="res://assets/icons/icon-border.png" type="Texture" id=4]
 [ext_resource path="res://themes/new_new_theme.tres" type="Theme" id=5]
 
@@ -41,91 +41,96 @@ custom_constants/margin_left = 32
 margin_left = 32.0
 margin_right = 468.0
 margin_bottom = 500.0
-custom_constants/separation = 0
+custom_constants/separation = 15
 alignment = 1
 
 [node name="FileSavedLabel" type="Label" parent="MarginContainer/Container"]
-visible = false
-margin_top = 17.0
-margin_right = 460.0
-margin_bottom = 31.0
-custom_colors/font_color = Color( 0.25098, 1, 0.313726, 1 )
-align = 1
-
-[node name="Icon" type="TextureRect" parent="MarginContainer/Container"]
-margin_top = 40.0
+unique_name_in_owner = true
+margin_top = 33.0
 margin_right = 436.0
-margin_bottom = 97.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 0.61, 0.8, 0.6, 1 )
+align = 1
+valign = 1
+
+[node name="DesktopVariables" type="VBoxContainer" parent="MarginContainer/Container"]
+margin_top = 75.0
+margin_right = 436.0
+margin_bottom = 466.0
+custom_constants/separation = 24
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/Container/DesktopVariables"]
+margin_right = 436.0
+margin_bottom = 57.0
 texture = ExtResource( 4 )
 stretch_mode = 6
 
-[node name="Spacer" type="Control" parent="MarginContainer/Container"]
-margin_top = 97.0
-margin_right = 436.0
-margin_bottom = 121.0
-rect_min_size = Vector2( 0, 24 )
-
-[node name="DesktopVariables" type="VBoxContainer" parent="MarginContainer/Container"]
-margin_top = 121.0
-margin_right = 436.0
-margin_bottom = 459.0
-custom_constants/separation = 24
-
 [node name="Name" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
+unique_name_in_owner = true
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 81.0
 margin_right = 436.0
-margin_bottom = 30.0
+margin_bottom = 111.0
 text_label = "Name"
 placeholder_line_edit = "App name"
 
 [node name="ExecutablePath" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
+unique_name_in_owner = true
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 54.0
+margin_top = 135.0
 margin_right = 436.0
-margin_bottom = 84.0
+margin_bottom = 165.0
 text_label = "Executable path"
 placeholder_line_edit = "Path to executable"
 is_button_visible = true
+button_icon = ExtResource( 3 )
 
 [node name="IconPath" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
+unique_name_in_owner = true
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 108.0
+margin_top = 189.0
 margin_right = 436.0
-margin_bottom = 138.0
+margin_bottom = 219.0
 text_label = "Icon path"
 placeholder_line_edit = "Path to icon"
 is_button_visible = true
+button_icon = ExtResource( 3 )
 
 [node name="Type" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
+unique_name_in_owner = true
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 162.0
+margin_top = 243.0
 margin_right = 436.0
-margin_bottom = 192.0
+margin_bottom = 273.0
 text_label = "App type"
 placeholder_line_edit = "App type (Application as default)"
 
 [node name="SaveLocation" parent="MarginContainer/Container/DesktopVariables" instance=ExtResource( 1 )]
+unique_name_in_owner = true
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 216.0
+margin_top = 297.0
 margin_right = 436.0
-margin_bottom = 246.0
+margin_bottom = 327.0
 text_label = "Save location path (replace \"username\")"
 is_button_visible = true
+button_icon = ExtResource( 3 )
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/Container/DesktopVariables"]
+visible = false
 margin_top = 270.0
 margin_right = 436.0
 margin_bottom = 274.0
 
 [node name="GenerateFileButton" type="Button" parent="MarginContainer/Container/DesktopVariables"]
-margin_top = 298.0
+unique_name_in_owner = true
+margin_top = 351.0
 margin_right = 436.0
-margin_bottom = 338.0
+margin_bottom = 391.0
 rect_min_size = Vector2( 0, 40 )
 text = "Generate .desktop file"
 
@@ -134,23 +139,33 @@ wait_time = 4.0
 
 [node name="FileDialog" type="Node" parent="."]
 
+[node name="BgDialog" type="ColorRect" parent="FileDialog"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.498039 )
+
 [node name="AppPathFileDialog" type="FileDialog" parent="FileDialog"]
-margin_left = 25.0
-margin_top = 37.0
-margin_right = 477.0
-margin_bottom = 575.0
-theme = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 39.0
+margin_top = 53.0
+margin_right = -39.0
+margin_bottom = -53.0
+theme = ExtResource( 5 )
 window_title = "Open a File"
 resizable = true
 mode = 0
 access = 2
 
 [node name="AppIcoFileDialog" type="FileDialog" parent="FileDialog"]
-margin_left = 25.0
-margin_top = 37.0
-margin_right = 477.0
-margin_bottom = 575.0
-theme = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 42.0
+margin_top = 52.0
+margin_right = -42.0
+margin_bottom = -52.0
+theme = ExtResource( 5 )
 window_title = "Open a File"
 resizable = true
 mode = 0
@@ -160,11 +175,13 @@ __meta__ = {
 }
 
 [node name="GenerateFileDialog" type="FileDialog" parent="FileDialog"]
-margin_left = 25.0
-margin_top = 37.0
-margin_right = 477.0
-margin_bottom = 575.0
-theme = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 45.0
+margin_right = -40.0
+margin_bottom = -45.0
+theme = ExtResource( 5 )
 window_title = "Open a File"
 resizable = true
 mode = 0
@@ -176,5 +193,8 @@ __meta__ = {
 [connection signal="pressed" from="MarginContainer/Container/DesktopVariables/GenerateFileButton" to="." method="_on_GenerateFileButton_pressed"]
 [connection signal="timeout" from="TimerFileSave" to="." method="_on_TimerFileSave_timeout"]
 [connection signal="file_selected" from="FileDialog/AppPathFileDialog" to="." method="_on_AppPathFileDialog_file_selected"]
+[connection signal="hide" from="FileDialog/AppPathFileDialog" to="." method="_on_AppPathFileDialog_hide"]
 [connection signal="file_selected" from="FileDialog/AppIcoFileDialog" to="." method="_on_AppIcoFileDialog_file_selected"]
+[connection signal="hide" from="FileDialog/AppIcoFileDialog" to="." method="_on_AppIcoFileDialog_hide"]
 [connection signal="dir_selected" from="FileDialog/GenerateFileDialog" to="." method="_on_GenerateFileDialog_dir_selected"]
+[connection signal="hide" from="FileDialog/GenerateFileDialog" to="." method="_on_GenerateFileDialog_hide"]
