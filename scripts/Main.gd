@@ -95,8 +95,8 @@ func _on_GenerateFileButton_pressed() -> void:
 #
 
 func create_link_to_desktop(name_of_app):
-	var dot_desktop_file_path = save_location_dir + "/" + name_of_app + ".desktop"
-	OS.execute("ln", [dot_desktop_file_path, desktop_dir])
+	var dot_desktop_file_path = save_location_dir + name_of_app + ".desktop"
+	OS.execute("ln", ["-s", '"' + dot_desktop_file_path + '"', '"' + desktop_dir + '"'], true)
 	pass
 
 # on dialog hide
